@@ -1,0 +1,114 @@
+﻿@page "{searchString?}"
+@model GlassManagementSystem.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Glass Jobs</h1>
+
+<p>
+    <a asp-page="Create">Create New Job</a>
+</p>
+
+<form>
+    <p>
+        Clients Name: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Search" />
+    </p>
+</form>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Glass[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glass[0].QuotedAmount)
+            </th>
+            <th>
+                Date Created
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Glass[0].InvoiceNumber)
+            </th>
+            <th>
+                Job Status
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Glass)
+        {
+
+
+            // <tr class="@((item.JobStatus == "Completed") ? "table-success" : "table-warning")">
+
+            if (item.JobStatus == "Completed")
+            {
+
+                @:<tr class="table-success">
+            }
+            else if (item.JobStatus == "New" | item.JobStatus == "Measured")
+            {
+                 @:<tr class="table-danger">
+
+            }
+            else {
+                @:<tr class="table-warning">
+            }
+
+
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        £ @Html.DisplayFor(modelItem => item.QuotedAmount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateCreated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.JobStatus)
+                    </td>
+                    <td>
+                        <a asp-page="../GlassItems/Index" asp-route-id="@item.ID">Manage Glass</a>
+
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
+                            
+                if (item.JobStatus == "Completed")
+                {
+
+                     @:</tr>
+
+                }
+                else
+                {
+                     @:</tr>
+
+                 }
+            }
+
+        </tbody>
+</table>
+
+<div>
+    <ul class="pagination">
+        @for (var i = 1; i <= Model.TotalPages; i++)
+        {
+            <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                <a asp-page="/Jobs/Glass" asp-route-currentpage="@i" class="page-link">@i</a>
+            </li>
+        }
+    </ul>
+</div>

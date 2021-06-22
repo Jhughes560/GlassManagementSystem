@@ -1,0 +1,95 @@
+﻿@page
+@model GlassManagementSystem.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>New Job</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Glass.Name" class="control-label"></label>
+                <input asp-for="Glass.Name" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Address" class="control-label"></label>
+                <input asp-for="Glass.Address" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Email" class="control-label"></label>
+                <input asp-for="Glass.Email" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Phone" class="control-label"></label>
+                <input asp-for="Glass.Phone" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.JobStatus" class="control-label">Status Of Job</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Glass.JobStatus">
+                    <option value="New">New</option>
+                    <option value="Measured">Measured</option>
+                    <option value="Quoted">Quoted</option>
+                    <option value="Ordered">Ordered</option>
+                    <option value="Completed">Completed</option>
+
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Payed" class="control-label">Has The Work Been Paid for?</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Glass.Payed">
+                    <option value="Not Payed">Not Payed</option>
+                    <option value="Paid in Cash">Paid in Cash</option>
+                    <option value="Paid by Cheque">Paid by Cheque</option>
+                    <option value="Paid by Bank">Paid by Bank</option>
+
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.QuotedAmount" class="control-label"></label>
+                <input asp-for="Glass.QuotedAmount" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.DateOrdered" class="control-label"></label>
+                <input asp-for="Glass.DateOrdered" class="form-control" />
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.InvoiceNumber" class="control-label"></label>
+                <input asp-for="Glass.InvoiceNumber" class="form-control" />
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Glass.Comments" class="control-label"></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" asp-for="Glass.Comments"></textarea>
+                <span asp-validation-for="Glass.Comments" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

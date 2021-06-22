@@ -1,0 +1,112 @@
+﻿@page
+@model GlassManagementSystem.GlassItem.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>GlassItems</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.GlassID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.GlassID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.GlassHeight)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.GlassHeight)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.GlassWidth)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.GlassWidth)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.Comments)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.Comments)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.OuterGlassThickness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.OuterGlassThickness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.OuterGlassBuild)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.OuterGlassBuild)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.SpacerBarSize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.SpacerBarSize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.SpacerBarColour)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.SpacerBarColour)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.InnerGlassThickness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.InnerGlassThickness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.InnerGlassBuild)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.InnerGlassBuild)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.SingleGlassThickness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.SingleGlassThickness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.SingleGlassBuild)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.SingleGlassBuild)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.MirrorThickness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.MirrorThickness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.SafetyBacked)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.SafetyBacked)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.GlassItems.PolishedEdges)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.GlassItems.PolishedEdges)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="GlassItems.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

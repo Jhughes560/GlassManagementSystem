@@ -1,0 +1,96 @@
+﻿@page
+@model GlassManagementSystem.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit Client Details</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Glass.ID" />
+            <div class="form-group">
+                <label asp-for="Glass.Name" class="control-label"></label>
+                <input asp-for="Glass.Name" class="form-control" />
+                <span asp-validation-for="Glass.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Address" class="control-label"></label>
+                <input asp-for="Glass.Address" class="form-control" />
+                <span asp-validation-for="Glass.Address" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Email" class="control-label"></label>
+                <input asp-for="Glass.Email" class="form-control" />
+                <span asp-validation-for="Glass.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Phone" class="control-label"></label>
+                <input asp-for="Glass.Phone" class="form-control" />
+                <span asp-validation-for="Glass.Phone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.JobStatus" class="control-label">Status Of Job</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Glass.JobStatus">
+                    <option value="@Model.Glass.JobStatus">@Model.Glass.JobStatus</option>
+                    <option value="New">New</option>
+                    <option value="Measured">Measured</option>
+                    <option value="Quoted">Quoted</option>
+                    <option value="Ordered">Ordered</option>
+                    <option value="Completed">Completed</option>
+
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Payed" class="control-label">Has The Work Been Paid for?</label>
+                <select class="form-control" id="exampleFormControlSelect1" name="Glass.Payed">
+                    <option value="@Model.Glass.Payed">@Model.Glass.Payed</option>
+                    <option value="Not Payed">Not Payed</option>
+                    <option value="Paid in Cash">Paid in Cash</option>
+                    <option value="Paid by Cheque">Paid by Cheque</option>
+                    <option value="Paid by Bank">Paid by Bank</option>
+
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.QuotedAmount" class="control-label"></label>
+                <input asp-for="Glass.QuotedAmount" class="form-control" />
+                <span asp-validation-for="Glass.QuotedAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.DateOrdered" class="control-label"></label>
+                <input asp-for="Glass.DateOrdered" class="form-control" />
+                <span asp-validation-for="Glass.DateOrdered" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.InvoiceNumber" class="control-label"></label>
+                <input asp-for="Glass.InvoiceNumber" class="form-control" />
+                <span asp-validation-for="Glass.InvoiceNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Glass.Comments" class="control-label"></label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" asp-for="Glass.Comments"></textarea>
+                <span asp-validation-for="Glass.Comments" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <h2 asp-for="Glass.DateCreated" value="@Model.Glass.DateCreated">@Model.Glass.DateCreated</h2>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

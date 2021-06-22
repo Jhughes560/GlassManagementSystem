@@ -1,0 +1,168 @@
+﻿@page
+@model GlassManagementSystem.GlassItem.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Glass Details</h1>
+
+<div>
+    <dl class="row">
+        @{
+            var routeUrl = Url.RouteUrl(ViewContext.RouteData.Values);
+            var qsPath = ViewContext.HttpContext.Request.QueryString.Value;
+            var returnUrl = $"{routeUrl}{qsPath}";
+
+            if (returnUrl.Contains("Double"))
+            {
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.OuterGlassThickness)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.OuterGlassThickness)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.OuterGlassBuild)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.OuterGlassBuild)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.InnerGlassThickness)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.InnerGlassThickness)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.InnerGlassBuild)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.InnerGlassBuild)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.SpacerBarSize)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.SpacerBarSize)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.SpacerBarColour)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.SpacerBarColour)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.FlapHole)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.FlapHole)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.GlassHeight)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.GlassHeight)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.GlassWidth)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.GlassWidth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.Comments)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.Comments)
+                </dd>
+            }
+            else if (returnUrl.Contains("Single"))
+            {
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.SingleGlassThickness)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.SingleGlassThickness)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.SingleGlassBuild)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.SingleGlassBuild)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.GlassHeight)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.GlassHeight)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.GlassWidth)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.GlassWidth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.Comments)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.Comments)
+                </dd>
+            }
+
+            else if (returnUrl.Contains("Mirror")) {
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.MirrorThickness)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.MirrorThickness)
+                </dd>
+
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.SafetyBacked)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.SafetyBacked)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.PolishedEdges)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.PolishedEdges)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.GlassHeight)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.GlassHeight)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.GlassWidth)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.GlassWidth)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.GlassItems.Comments)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.GlassItems.Comments)
+                </dd>
+             }
+        }
+
+
+    </dl>
+</div>
+
+
+
+
+
+
+

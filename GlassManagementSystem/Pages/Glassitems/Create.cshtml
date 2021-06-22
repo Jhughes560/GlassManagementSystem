@@ -1,0 +1,230 @@
+﻿@page
+@model GlassManagementSystem.GlassItem.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+
+            @{
+                var routeUrl = Url.RouteUrl(ViewContext.RouteData.Values);
+                var qsPath = ViewContext.HttpContext.Request.QueryString.Value;
+                var returnUrl = $"{routeUrl}{qsPath}";
+
+                if (returnUrl.Contains("DoubleGlazing"))
+                {
+
+                    <div class="form-group">
+                        <label class="control-label">Outer Glass Thickness</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.OuterGlassThickness">
+                            <option value="">Select a Thickness</option>
+                            <option value="2x4mm">2x4mm</option>
+                            <option value="2x6mm">2x6mm</option>
+                            <option value="4x6.4mm">4x6.4mm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GlassItems.OuterGlassBuild" class="control-label">Outer Glass Build</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.OuterGlassBuild">
+                            <option value="">Select a Build</option>
+                            <option value="Clear">Clear</option>
+                            <option value="Toughened">Toughened</option>
+                            <option value="Low-e">Low-e</option>
+                            <option value="Low-e Toughened">Low-e Toughened</option>
+                            <option value="Patterend">Patterend</option>
+                            <option value="Patterend Toughened">Patterend Toughened</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Inner Glass Thickness</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.InnerGlassThickness">
+                            <option value="">Select a Thickness</option>
+                            <option value="2x4mm">2x4mm</option>
+                            <option value="2x6mm">2x6mm</option>
+                            <option value="4x6.4mm">4x6.4mm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GlassItems.InnerGlassBuild" class="control-label">Inner Glass Build</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.InnerGlassBuild">
+                            <option value="">Select a Build</option>
+                            <option value="Clear">Clear</option>
+                            <option value="Toughened">Toughened</option>
+                            <option value="Low-e">Low-e</option>
+                            <option value="Low-e Toughened">Low-e Toughened</option>
+                            <option value="Patterend">Patterend</option>
+                            <option value="Patterend Toughened">Patterend Toughened</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GlassItems.SpacerBarSize" class="control-label">Spacer Bar Size</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.SpacerBarSize">
+                            <option value="">Select a Size</option>
+                            <option value="6">6</option>
+                            <option value="8">8</option>
+                            <option value="10">10</option>
+                            <option value="12">12</option>
+                            <option value="14">14</option>
+                            <option value="16">16</option>
+                            <option value="18">18</option>
+                            <option value="20">20</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Spacer Bar Colour</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.SpacerBarColour">
+                            <option value="">Select a Colour</option>
+                            <option value="Silver">Silver</option>
+                            <option value="Gold">Gold</option>
+                            <option value="White">White</option>
+                            <option value="Black">Black</option>
+                            <option value="Swiss Black">Swiss Black</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Fan/Cat Flap Hole?</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.FlapHole">
+                            <option value="">Yes/No?</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Glass Height (mm)</label>
+                        <input asp-for="GlassItems.GlassHeight" class="form-control" />
+                        <span asp-validation-for="GlassItems.GlassHeight" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Glass Width (mm)</label>
+                        <input asp-for="GlassItems.GlassWidth" class="form-control" />
+                        <span asp-validation-for="GlassItems.GlassWidth" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="GlassItems.Comments" class="control-label"></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" asp-for="GlassItems.Comments"></textarea>
+                        <span asp-validation-for="GlassItems.Comments" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                }
+                else if (returnUrl.Contains("SingleGlazing"))
+                {
+                    <div class="form-group">
+                        <label class="control-label">Glass Thickness</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.SingleGlassThickness">
+                            <option value="">Select a Thickness</option>
+                            <option value="3mm">3mm</option>
+                            <option value="4mm">4mm</option>
+                            <option value="6mm">6mm</option>
+                            <option value="6.4mm">6.4mm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GlassItems.SingleGlassBuild" class="control-label"></label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.SingleGlassBuild">
+                            <option value="">Select a Build</option>
+                            <option value="Clear">Clear</option>
+                            <option value="Toughened">Toughened</option>
+                            <option value="Low-e">Low-e</option>
+                            <option value="Low-e Toughened">Low-e Toughened</option>
+                            <option value="Patterend">Patterend</option>
+                            <option value="Patterend Toughened">Patterend Toughened</option>
+                            <option value="Laminated">Laminated</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Glass Height (mm)</label>
+                        <input asp-for="GlassItems.GlassHeight" class="form-control" />
+                        <span asp-validation-for="GlassItems.GlassHeight" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Glass Width (mm)</label>
+                        <input asp-for="GlassItems.GlassWidth" class="form-control" />
+                        <span asp-validation-for="GlassItems.GlassWidth" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label asp-for="GlassItems.Comments" class="control-label"></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" asp-for="GlassItems.Comments"></textarea>
+                        <span asp-validation-for="GlassItems.Comments" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+                }
+                else if (returnUrl.Contains("Mirror"))
+                {
+
+                    <div class="form-group">
+                        <label class="control-label">Mirror Thickness</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.MirrorThickness">
+                            <option value="">Select a Thickness</option>
+                            <option value="4mm">4mm</option>
+                            <option value="6mm">6mm</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GlassItems.SafetyBacked" class="control-label"></label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.SafetyBacked">
+                            <option value="">Yes/No?</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GlassItems.PolishedEdges" class="control-label"></label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="GlassItems.PolishedEdges">
+                            <option value="">Yes/No?</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label">Glass Height (mm)</label>
+                        <input asp-for="GlassItems.GlassHeight" class="form-control" />
+                        <span class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Glass Width (mm)</label>
+                        <input asp-for="GlassItems.GlassWidth" class="form-control" />
+                        <span asp-validation-for="GlassItems.GlassWidth" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="GlassItems.Comments" class="control-label"></label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" asp-for="GlassItems.Comments"></textarea>
+                        <span asp-validation-for="GlassItems.Comments" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create" class="btn btn-primary" />
+                    </div>
+
+                    <p>@Model.GlassTypeList</p>
+
+                }
+                else
+                {
+                    <h2>Glass Type hasn't been specified</h2>
+                }
+
+
+            }
+
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

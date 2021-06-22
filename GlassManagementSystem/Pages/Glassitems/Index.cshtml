@@ -1,0 +1,51 @@
+﻿@page  "{id?}"
+@model GlassManagementSystem.GlassItem.IndexModel
+
+@{
+    ViewData["Title"] = "Clients Glass";
+}
+
+<h1>Clients Glass</h1>
+<p>
+    <a asp-page="Create" asp-route-id="@Model.ID" asp-route-glasstype="Mirror">New Mirror</a> |
+    <a asp-page="Create" asp-route-id="@Model.ID" asp-route-glasstype="SingleGlazing">New Single Glazing</a> |
+    <a asp-page="Create" asp-route-id="@Model.ID" asp-route-glasstype="DoubleGlazing">New Double Glazing</a> |
+</p>
+
+<table class="table table-striped">
+    <thead>
+
+        <tr>
+            <th>
+                Glass Type
+            </th>
+            <th>
+                Glass Height (mm)
+            </th>
+            <th>
+                Glass Width (mm)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.GlassItemList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GlassType)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GlassHeight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GlassWidth)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" asp-route-glasstype="@item.GlassType">Edit</a>  |
+                    <a asp-page="./Details" asp-route-id="@item.GlassID" asp-route-glasstype="@item.GlassType">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.GlassID" asp-route-glasstype="@item.GlassType">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
